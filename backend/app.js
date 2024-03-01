@@ -5,12 +5,8 @@ const appointmentRoute= require('./routes/appointment')
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
-app.get('/',(req,res,next)=>{
-    res.send("<h1>Home Page</h1>")
-})
   app.use('/',appointmentRoute)
-
-
+  
 sequelize.sync()
 .then(()=>{
     app.listen(4000,()=>{
